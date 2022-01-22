@@ -1,0 +1,1 @@
+// window.sharedObject = 1;
