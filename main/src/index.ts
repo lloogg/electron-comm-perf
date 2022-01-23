@@ -7,6 +7,7 @@ app.on('ready', () => {
   let window = new BrowserWindow({
     width: 800,
     height: 600,
+    show: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -14,7 +15,10 @@ app.on('ready', () => {
     },
   });
   window.loadURL(`file://${__dirname}/../index.html`);
-  if (!app.isPackaged) {
-    window.webContents.openDevTools();
-  }
+  window.once('ready-to-show', () => {
+    window.show();
+    if (!app.isPackaged) {
+      window.webContents.openDevTools();
+    }
+  });
 });

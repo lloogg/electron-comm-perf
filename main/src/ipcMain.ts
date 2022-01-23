@@ -58,7 +58,7 @@ ipcMain.handle('comm', (e, data) => {
   let browserWindows: BrowserWindow[] = BrowserWindow.getAllWindows();
   for (let browserWindow of browserWindows) {
     if (bw !== browserWindow) {
-      browserWindow.webContents.send('message', e.sender);
+      browserWindow.webContents.send('message');
     }
   }
 });

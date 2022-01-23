@@ -16,6 +16,10 @@ module.exports = {
         use: 'ts-loader',
         exclude: '/node_modules/',
       },
+      {
+        test: /\.json/,
+        type: 'asset/source',
+      },
     ],
   },
   resolve: {

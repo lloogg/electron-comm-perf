@@ -4,7 +4,8 @@ function genLargeData() {
   let obj = new Object();
   let i = 0;
   let key;
-  for (i; i < 10000000; i++) {
+  for (i; i < 100; i++) {
+    console.log(i);
     key =
       'key_' +
       i +
@@ -20,4 +21,8 @@ function genLargeData() {
 }
 
 let bigData = genLargeData();
-fs.writeFileSync('./bigdata.json', data);
+fs.writeFileSync('./bigdata.json', JSON.stringify(bigData));
+
+let jsonData = JSON.parse(fs.readFileSync('./bigdata.json'));
+
+// let appendData = genLargeData();

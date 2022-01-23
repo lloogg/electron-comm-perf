@@ -1,6 +1,4 @@
-declare global {
-  interface Window {
-    sharedObject?: any;
-  }
+declare interface Window {
+  sharedObject?: any;
 }
 export {};

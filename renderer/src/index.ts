@@ -1,8 +1,11 @@
 import { ipcRenderer, BrowserWindow } from 'electron';
 import crypto from 'crypto';
-import bigdata from './bigdata.json';
+declare const window: Window & { sharedObject: any; setSharedObj: any };
+
+// import bigdata from './bigdata copy.json';
 ipcRenderer.on('message', (e, data) => {
-  console.log(data);
+  console.log('object');
+  console.log(window.sharedObject);
 });
 let openChildWindowButton = document.getElementById('open-child-window-button');
 openChildWindowButton?.addEventListener('click', () => {
@@ -15,9 +18,9 @@ openChildWindowButton?.addEventListener('click', () => {
 let commButton = document.getElementById('comm-button');
 
 commButton?.addEventListener('click', () => {
-  let largeObj = genLargeData();
-  console.log(largeObj);
-  ipcRenderer.invoke('comm', largeObj);
+  // let largeObj = genLargeData();
+  // console.log(bigdata);
+  ipcRenderer.invoke('comm');
 });
 
 function genLargeData() {
