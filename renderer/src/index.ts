@@ -8,11 +8,18 @@ ipcRenderer.on('message', (e, data) => {
   console.log(window.sharedObject);
 });
 let openChildWindowButton = document.getElementById('open-child-window-button');
-openChildWindowButton?.addEventListener('click', () => {
+openChildWindowButton.addEventListener('click', () => {
   console.log(ipcRenderer);
   console.log(window);
   // ipcRenderer.send('open-child-window');
   ipcRenderer.invoke('open-child-window');
+});
+
+let openPropertyWindowButton = document.getElementById(
+  'open-property-window-button',
+);
+openPropertyWindowButton.addEventListener('click', () => {
+  ipcRenderer.invoke('open-property-window');
 });
 
 let commButton = document.getElementById('comm-button');
@@ -21,6 +28,11 @@ commButton?.addEventListener('click', () => {
   // let largeObj = genLargeData();
   // console.log(bigdata);
   ipcRenderer.invoke('comm');
+});
+
+let windowOpenButton = document.getElementById('window-open-button');
+windowOpenButton.addEventListener('click', () => {
+  window.open();
 });
 
 function genLargeData() {

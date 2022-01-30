@@ -4,19 +4,24 @@
   "main": "dist/main.js",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^17.0.10",
+    "@types/node": "^17.0.13",
     "@types/webpack": "^5.28.0",
     "electron": "13.6.6",
+    "npm-run-all": "^4.1.5",
     "ts-loader": "^9.2.6",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.5",
     "webpack": "^5.67.0",
     "webpack-cli": "^4.9.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "scripts": {
     "watch:main": "webpack --config main/webpack.config.js --watch",
     "watch:renderer": "webpack --config renderer/webpack.config.js --watch",
+    "watch": "run-p watch:main watch:renderer",
     "main": "electron ."
   }
 }

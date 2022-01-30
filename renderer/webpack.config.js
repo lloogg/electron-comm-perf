@@ -1,7 +1,7 @@
 const path = require('path');
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, './src/index.ts'),
+  entry: path.resolve(__dirname, './src/index.tsx'),
   output: {
     filename: 'index.js',
   },
@@ -9,7 +9,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: '/node_modules/',
       },
